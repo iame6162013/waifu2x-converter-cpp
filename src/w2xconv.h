@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include "cvwrap.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -162,6 +163,10 @@ struct float3 {
 
 //TODO: what does W2XCONV_EXPORT do?
 W2XCONV_EXPORT	void get_png_background_colour(FILE *png_fp, bool *png_rgb, struct float3 *bkgd_colour);
+
+W2XCONV_EXPORT void w2xconv_convert_video();
+void w2xconv_convert_image(struct W2XConv *conv, cv::Mat* image_src, cv::Mat* image_dst, int denoise_level, int blockSize, double scale, bool is_rgb, bool png_rgb, float3 background);
+
 
 W2XCONV_EXPORT const struct W2XConvProcessor *w2xconv_get_processor_list(int *ret_num);
 
